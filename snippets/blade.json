@@ -1,0 +1,141 @@
+{
+  "Livewire wire:model": {
+    "prefix": "wire:model",
+    "body": "wire:model=\"${1:property}\"",
+    "description": "Livewire two-way data binding"
+  },
+  "Livewire wire:click": {
+    "prefix": "wire:click",
+    "body": "wire:click=\"${1:method}\"",
+    "description": "Livewire click handler"
+  },
+  "Livewire wire:submit": {
+    "prefix": "wire:submit",
+    "body": "wire:submit=\"${1:method}\"",
+    "description": "Livewire form submit"
+  },
+  "Livewire wire:loading": {
+    "prefix": "wire:loading",
+    "body": "wire:loading",
+    "description": "Livewire loading state"
+  },
+  "Livewire @error": {
+    "prefix": "@error",
+    "body": [
+      "@error('${1:field}')",
+      "    <p class=\"form-error-message\">",
+      "        {{ \\$message }}",
+      "    </p>",
+      "@enderror"
+    ],
+    "description": "Livewire error directive"
+  },
+  "Alpine x-data": {
+    "prefix": "x-data",
+    "body": "x-data=\"{ ${1:property}: ${2:value} }\"",
+    "description": "Alpine.js data declaration"
+  },
+  "Alpine x-show": {
+    "prefix": "x-show",
+    "body": "x-show=\"${1:condition}\"",
+    "description": "Alpine.js conditional display"
+  },
+  "Alpine x-if": {
+    "prefix": "x-if",
+    "body": "x-if=\"${1:condition}\"",
+    "description": "Alpine.js conditional rendering"
+  },
+  "Alpine x-for": {
+    "prefix": "x-for",
+    "body": "x-for=\"${1:item} in ${2:items}\"",
+    "description": "Alpine.js loop"
+  },
+  "Alpine x-on:click": {
+    "prefix": "x-on:click",
+    "body": "x-on:click=\"${1:handler}\"",
+    "description": "Alpine.js click event"
+  },
+  "Alpine @click": {
+    "prefix": "@click",
+    "body": "@click=\"${1:handler}\"",
+    "description": "Alpine.js click event (shorthand)"
+  },
+  "Alpine x-model": {
+    "prefix": "x-model",
+    "body": "x-model=\"${1:property}\"",
+    "description": "Alpine.js two-way binding"
+  },
+  "Alpine x-bind": {
+    "prefix": "x-bind",
+    "body": "x-bind:${1:attribute}=\"${2:value}\"",
+    "description": "Alpine.js attribute binding"
+  },
+  "Alpine :class": {
+    "prefix": ":class",
+    "body": ":class=\"{ '${1:class}': ${2:condition} }\"",
+    "description": "Alpine.js class binding (shorthand)"
+  },
+  "Alpine x-init": {
+    "prefix": "x-init",
+    "body": "x-init=\"${1:code}\"",
+    "description": "Alpine.js initialization"
+  },
+  "Alpine x-text": {
+    "prefix": "x-text",
+    "body": "x-text=\"${1:value}\"",
+    "description": "Alpine.js text content"
+  },
+  "Alpine x-html": {
+    "prefix": "x-html",
+    "body": "x-html=\"${1:value}\"",
+    "description": "Alpine.js HTML content"
+  },
+  "Livewire Component Full": {
+    "prefix": "livewire-component",
+    "body": [
+      "<div",
+      "    wire:key=\"${1:unique-key}\"",
+      "    class=\"${2:container}\"",
+      ">",
+      "    ${0}",
+      "</div>"
+    ],
+    "description": "Livewire component wrapper"
+  },
+  "Alpine Component Full": {
+    "prefix": "alpine-component",
+    "body": [
+      "<div",
+      "    x-data=\"{ ${1:open}: ${2:false} }\"",
+      "    class=\"${3:container}\"",
+      ">",
+      "    ${0}",
+      "</div>"
+    ],
+    "description": "Alpine.js component wrapper"
+  },
+  "Form with Livewire": {
+    "prefix": "form-livewire",
+    "body": [
+      "<form wire:submit=\"${1:save}\">",
+      "    <div class=\"form-box\">",
+      "        <label for=\"${2:field}\">${3:Label}</label>",
+      "        <input",
+      "            class=\"form-input\"",
+      "            id=\"${2:field}\"",
+      "            type=\"${4:text}\"",
+      "            wire:model=\"${5:form.${2:field}}\"",
+      "        >",
+      "        @error('${5:form.${2:field}}')",
+      "            <p class=\"form-error-message\">{{ \\$message }}</p>",
+      "        @enderror",
+      "    </div>",
+      "    ",
+      "    <button class=\"btn primary\" type=\"submit\">",
+      "        ${6:Submit}",
+      "    </button>",
+      "</form>"
+    ],
+    "description": "Complete Livewire form"
+  }
+}
