@@ -29,17 +29,52 @@ return {
     "nvim-telescope/telescope.nvim",
     keys = {
       { "<leader>fp", false }, -- Disable default find plugin files
+      -- Override <leader><space> to show gitignored files
+      {
+        "<leader><space>",
+        function()
+          require("telescope.builtin").find_files({
+            hidden = true, -- Show hidden files
+            no_ignore = true, -- Don't respect .gitignore
+            no_ignore_parent = true, -- Don't respect parent .gitignore
+            file_ignore_patterns = {
+              "^%.git/",
+              "^node_modules/",
+              "%.DS_Store",
+            },
+          })
+        end,
+        desc = "Find Files (All)",
+      },
       {
         "<leader>ff",
         function()
-          require("telescope.builtin").find_files()
+          require("telescope.builtin").find_files({
+            hidden = true, -- Show hidden files
+            no_ignore = true, -- Don't respect .gitignore
+            no_ignore_parent = true, -- Don't respect parent .gitignore
+            file_ignore_patterns = {
+              "^%.git/",
+              "^node_modules/",
+              "%.DS_Store",
+            },
+          })
         end,
         desc = "Find Files",
       },
       {
         "<leader>fg",
         function()
-          require("telescope.builtin").live_grep()
+          require("telescope.builtin").live_grep({
+            additional_args = function()
+              return { "--hidden", "--no-ignore" }
+            end,
+            file_ignore_patterns = {
+              "^%.git/",
+              "^node_modules/",
+              "%.DS_Store",
+            },
+          })
         end,
         desc = "Live Grep",
       },
@@ -53,13 +88,7 @@ return {
     },
     opts = {
       defaults = {
-        file_ignore_patterns = {
-          "node_modules",
-          "vendor",
-          ".git/",
-          "storage/",
-          "bootstrap/cache/",
-        },
+        -- Don't set file_ignore_patterns here, let individual commands handle it
       },
     },
   },

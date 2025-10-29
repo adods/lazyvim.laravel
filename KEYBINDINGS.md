@@ -35,15 +35,20 @@ This document lists all available keyboard shortcuts and commands in this Larave
 ## File Navigation (Telescope)
 
 ### Finding Files
-- `<leader>ff` - Find files
-- `<leader>fg` - Live grep (search in files)
+- `<leader><space>` - Find files (includes gitignored files)
+- `<leader>ff` - Find files (includes gitignored files)
+- `<leader>fg` - Live grep (search in files, includes gitignored files)
 - `<leader>fb` - List buffers
 - `<leader>fr` - Recent files (LazyVim default)
 - `<leader>fR` - Recent files (cwd) (LazyVim default)
 
+**Note:** Find files and grep commands show all files including gitignored directories (packages, synapps) but exclude .git/, node_modules/, and .DS_Store.
+
 ### File Explorer (Neo-tree)
-- `<leader>e` - Toggle file explorer (LazyVim default)
-- `<leader>E` - Toggle file explorer (root dir) (LazyVim default)
+- `<leader>e` - Toggle file explorer
+- `<leader>E` - Toggle file explorer (cwd)
+
+**Note:** Neo-tree shows all files including gitignored directories (packages, synapps) but excludes .git/, node_modules/, and .DS_Store.
 
 ## Laravel Development
 
