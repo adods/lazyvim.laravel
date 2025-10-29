@@ -48,19 +48,41 @@ return {
     },
   },
 
-  -- File explorer
+  -- Snacks.nvim for better UI components (explorer disabled, using neo-tree instead)
+  {
+    "folke/snacks.nvim",
+    -- Note: Using neo-tree for file explorer instead of snacks
+  },
+
+  -- File explorer (Neo-tree) - Enabled as reliable alternative
   {
     "nvim-neo-tree/neo-tree.nvim",
+    keys = {
+      {
+        "<leader>e",
+        "<cmd>Neotree toggle<cr>",
+        desc = "Explorer (Neo-tree)",
+      },
+      {
+        "<leader>E",
+        function()
+          require("neo-tree.command").execute({ toggle = true, dir = vim.fn.getcwd() })
+        end,
+        desc = "Explorer (cwd)",
+      },
+    },
     opts = {
       filesystem = {
         filtered_items = {
-          hide_dotfiles = false,
-          hide_gitignored = false,
+          visible = true, -- Show all filtered items
+          hide_dotfiles = false, -- Don't hide dotfiles
+          hide_gitignored = false, -- Don't hide gitignored files
           hide_by_name = {
             "node_modules",
             ".git",
             ".DS_Store",
           },
+          never_show = {}, -- Clear never_show list
         },
       },
     },

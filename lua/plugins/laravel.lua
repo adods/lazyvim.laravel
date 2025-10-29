@@ -203,7 +203,7 @@ return {
       },
       linters = {
         phpstan = {
-          cmd = "vendor/bin/phpstan",
+          cmd = "phpstan",  -- Use global phpstan command
           args = {
             "analyze",
             "--error-format=json",
