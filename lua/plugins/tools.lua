@@ -46,6 +46,23 @@ return {
         end,
         desc = "Find Files (All)",
       },
+      -- Override <leader>/ to use Telescope instead of snacks
+      {
+        "<leader>/",
+        function()
+          require("telescope.builtin").live_grep({
+            additional_args = function()
+              return { "--hidden", "--no-ignore" }
+            end,
+            file_ignore_patterns = {
+              "^%.git/",
+              "^node_modules/",
+              "%.DS_Store",
+            },
+          })
+        end,
+        desc = "Grep (Root Dir)",
+      },
       {
         "<leader>ff",
         function()
