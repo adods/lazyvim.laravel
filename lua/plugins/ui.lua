@@ -51,7 +51,13 @@ return {
   -- Snacks.nvim for better UI components (explorer disabled, using neo-tree instead)
   {
     "folke/snacks.nvim",
-    -- Note: Using neo-tree for file explorer instead of snacks
+    keys = {
+      -- Disable snacks explorer keybindings
+      { "<leader>e", false },
+      { "<leader>E", false },
+      { "<leader>fe", false },
+      { "<leader>fE", false },
+    },
   },
 
   -- File explorer (Neo-tree) - Enabled as reliable alternative
